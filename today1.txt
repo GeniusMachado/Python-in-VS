@@ -1,5 +1,8 @@
+.
+├── 01_variables.py
+├── 02_datatypes.py
+├── Chapter 1 PS
 │   ├── Problem1.py
- allah is deleted and peace is granted 
 │   ├── Problem2.py
 │   ├── Problem3.py
 │   ├── Problem4.py
@@ -16,8 +19,9 @@
 ├── jshgi.py
 ├── notes.txt
 ├── sensor_server.py
+├── today1.txt
 ├── utils.txt
 ├── youtube_stats.json
 └── yt_log.txt
 
-3 directories, 21 files
+3 directories, 22 files
