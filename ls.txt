@@ -1,0 +1,21 @@
+01_variables.py
+02_datatypes.py
+Chapter 1 PS
+Chapter 2 PS
+Figure_1.png
+allahhhh.txt
+apple.txt
+daily.sh
+file1.txt
+forfun.txt
+ignore.txt
+index.txt
+jshgi.py
+ls.txt
+notes.txt
+sensor_server.py
+today1.txt
+tree_in_dekstop.txt
+utils.txt
+youtube_stats.json
+yt_log.txt
