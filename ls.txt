@@ -1,3 +1,9 @@
+ hgidfgh
+fjghf'ga
+gu
+fdgsd
+
+g
 01_variables.py
 02_datatypes.py
 Chapter 1 PS
