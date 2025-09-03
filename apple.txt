@@ -1,1 +1,30 @@
-allah apple khata hai ..... Do you want me to make egg something ? No is the aswer 
+.
+├── 01_variables.py
+├── 02_datatypes.py
+├── Chapter 1 PS
+│   ├── Problem1.py
+│   ├── Problem2.py
+│   ├── Problem3.py
+│   ├── Problem4.py
+│   └── Problem5.py
+├── Chapter 2 PS
+│   └── backlog.log
+├── Figure_1.png
+├── allahhhh.txt
+├── apple.txt
+├── daily.sh
+├── file1.txt
+├── forfun.txt
+├── ignore.txt
+├── index.txt
+├── jshgi.py
+├── ls.txt
+├── notes.txt
+├── sensor_server.py
+├── today1.txt
+├── tree_in_dekstop.txt
+├── utils.txt
+├── youtube_stats.json
+└── yt_log.txt
+
+3 directories, 25 files
