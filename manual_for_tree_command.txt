@@ -1,0 +1,403 @@
+TREE(1)                     General Commands Manual                    TREE(1)
+
+NNAAMMEE
+       tree - list contents of directories in a tree-like format.
+
+SSYYNNOOPPSSIISS
+       ttrreeee [--aaccddffgghhiillnnppqqrrssttuuvvxxAACCDDFFJJQQNNSSUUXX] [--LL _l_e_v_e_l [--RR]] [--HH [-]_b_a_s_e_H_R_E_F]
+       [--TT _t_i_t_l_e] [--oo _f_i_l_e_n_a_m_e] [--PP _p_a_t_t_e_r_n] [--II _p_a_t_t_e_r_n] [----ggiittiiggnnoorree]
+       [----ggiittffiillee[==]_f_i_l_e] [----mmaattcchhddiirrss] [----mmeettaaffiirrsstt] [----iiggnnoorree--ccaassee]
+       [----nnoolliinnkkss] [----hhiinnttrroo[==]_f_i_l_e] [----hhoouuttrroo[==]_f_i_l_e] [----iinnooddeess] [----ddeevviiccee]
+       [----ssoorrtt[==]_n_a_m_e] [----ddiirrssffiirrsstt] [----ffiilleessffiirrsstt] [----ffiilleelliimmiitt[==]_#] [----ssii]
+       [----dduu] [----pprruunnee] [----cchhaarrsseett[==]_X] [----ttiimmeeffmmtt[==]_f_o_r_m_a_t] [----ffrroommffiillee]
+       [----ffrroommttaabbffiillee] [----fffflliinnkkss] [----iinnffoo] [----iinnffooffiillee[==]_f_i_l_e] [----nnoorreeppoorrtt]
+       [----hhyyppeerrlliinnkk] [----sscchheemmee[==]_s_c_h_e_m_a] [----aauutthhoorriittyy[==]_h_o_s_t_n_a_m_e] [----oopptt--
+       ttooggggllee] [----vveerrssiioonn] [----hheellpp] [----] [_d_i_r_e_c_t_o_r_y ...]
+
+
+DDEESSCCRRIIPPTTIIOONN
+       _T_r_e_e is a recursive directory listing program that produces a depth
+       indented listing of files, which is colorized ala _d_i_r_c_o_l_o_r_s if the
+       LLSS__CCOOLLOORRSS environment variable is set and output is to tty.  With no
+       arguments, _t_r_e_e lists the files in the current directory.  When
+       directory arguments are given, _t_r_e_e lists all the files and/or
+       directories found in the given directories each in turn.  Upon
+       completion of listing all files/directories found, _t_r_e_e returns the
+       total number of files and/or directories listed.
+
+       By default, when a symbolic link is encountered, the path that the
+       symbolic link refers to is printed after the name of the link in the
+       format:
+
+           name -> real-path
+
+       If the `--ll' option is given and the symbolic link refers to an actual
+       directory, then _t_r_e_e will follow the path of the symbolic link as if it
+       were a real directory.
+
+
+OOPPTTIIOONNSS
+       _T_r_e_e understands the following command line switches:
+
+
+LLIISSTTIINNGG OOPPTTIIOONNSS
+       --aa     All files are printed.  By default tree does not print hidden
+              files (those beginning with a dot `.').  In no event does tree
+              print the file system constructs `.' (current directory) and
+              `..' (previous directory).
+
+       --dd     List directories only.
+
+       --ll     Follows symbolic links if they point to directories, as if they
+              were directories. Symbolic links that will result in recursion
+              are avoided when detected.
+
+       --ff     Prints the full path prefix for each file.
+
+       --xx     Stay on the current file-system only.  Ala ffiinndd _-_x_d_e_v..
+
+       --LL _l_e_v_e_l
+              Max display depth of the directory tree.
+
+       --RR     Recursively cross down the tree each _l_e_v_e_l directories (see --LL
+              option), and at each level outputting to a file named
+              0000TTrreeee..hhttmmll (ala --oo).
+
+       --PP _p_a_t_t_e_r_n
+              List only those files that match the wild-card _p_a_t_t_e_r_n.  You may
+              have multiple -P options. Note: you must use the _-_a option to
+              also consider those files beginning with a dot `.' for matching.
+              Valid wildcard operators are `*' (any zero or more characters),
+              `**` (any zero or more characters as well as null /'s, i.e. /**/
+              may match a single /), `?' (any single character), `[...]' (any
+              single character listed between brackets (optional - (dash) for
+              character range may be used: ex: [A-Z]), and `[^...]' (any
+              single character not listed in brackets) and `|' separates
+              alternate patterns. A '/' at the end of the pattern matches
+              directories, but not files.
+
+       --II _p_a_t_t_e_r_n
+              Do not list those files that match the wild-card _p_a_t_t_e_r_n.  You
+              may have multiple -I options.  See _-_P above for information on
+              wildcard patterns.
+
+       ----ggiittiiggnnoorree
+              Uses git ..ggiittiiggnnoorree files for filtering files and directories.
+              Also uses $$GGIITT__DDIIRR//iinnffoo//eexxcclluuddee if present.
+
+       ----ggiittffiillee[==]_f_i_l_e
+              Use _f_i_l_e explicitly as a gitignore file.
+
+       ----iiggnnoorree--ccaassee
+              If a match pattern is specified by the --PP or --II option, this
+              will cause the pattern to match without regard to the case of
+              each letter.
+
+       ----mmaattcchhddiirrss
+              If a match pattern is specified by the --PP option, this will
+              cause the pattern to be applied to directory names (in addition
+              to filenames).  In the event of a match on the directory name,
+              matching is disabled for the directory's contents. If the
+              ----pprruunnee option is used, empty folders that match the pattern
+              will not be pruned.
+
+       ----mmeettaaffiirrsstt
+              Print the meta-data information at the beginning of the line
+              rather than after the indentation lines.
+
+       ----pprruunnee
+              Makes tree prune empty directories from the output, useful when
+              used in conjunction with --PP or --II.  See BBUUGGSS AANNDD NNOOTTEESS below for
+              more information on this option.
+
+       ----iinnffoo Prints file comments found in .info files.  See ..IINNFFOO FFIILLEESS
+              below for more information on the format of .info files.
+
+       ----iinnffooffiillee[==]_f_i_l_e
+              Use _f_i_l_e explicitly as a info file.
+
+       ----nnoorreeppoorrtt
+              Omits printing of the file and directory report at the end of
+              the tree listing.
+
+       ----cchhaarrsseett[==]_c_h_a_r_s_e_t
+              Set the character set to use when outputting HTML and for line
+              drawing.
+
+       ----ffiilleelliimmiitt[==]_#
+              Do not descend directories that contain more than _# entries.
+
+       ----ttiimmeeffmmtt[==]_f_o_r_m_a_t
+              Prints (implies -D) and formats the date according to the format
+              string which uses the ssttrrffttiimmee(3) syntax.
+
+       --oo _f_i_l_e_n_a_m_e
+              Send output to _f_i_l_e_n_a_m_e.
+
+FFIILLEE OOPPTTIIOONNSS
+       --qq     Print non-printable characters in filenames as question marks
+              instead of the default.
+
+       --NN     Print non-printable characters as is instead of as escaped octal
+              numbers.
+
+       --QQ     Quote the names of files in double quotes.
+
+       --pp     Print the file type and permissions for each file (as per ls
+              -l).
+
+       --uu     Print the username, or UID # if no username is available, of the
+              file.
+
+       --gg     Print the group name, or GID # if no group name is available, of
+              the file.
+
+       --ss     Print the size of each file in bytes along with the name.
+
+       --hh     Print the size of each file but in a more human readable way,
+              e.g. appending a size letter for kilobytes (K), megabytes (M),
+              gigabytes (G), terabytes (T), petabytes (P) and exabytes (E).
+
+       ----ssii   Like --hh but use SI units (powers of 1000) instead.
+
+       ----dduu   For each directory report its size as the accumulation of sizes
+              of all its files and sub-directories (and their files, and so
+              on).  The total amount of used space is also given in the final
+              report (like the 'du -c' command.) This option requires tree to
+              read the entire directory tree before emitting it, see BBUUGGSS AANNDD
+              NNOOTTEESS below.  Implies --ss.
+
+       --DD     Print the date of the last modification time or if --cc is used,
+              the last status change time for the file listed.
+
+       --FF     Append a `/' for directories, a `=' for socket files, a `*' for
+              executable files, a `>' for doors (Solaris) and a `|' for
+              FIFO's, as per ls -F
+
+       ----iinnooddeess
+              Prints the inode number of the file or directory
+
+       ----ddeevviiccee
+              Prints the device number to which the file or directory belongs
+
+SSOORRTTIINNGG OOPPTTIIOONNSS
+       --vv     Sort the output by version.
+
+       --tt     Sort the output by last modification time instead of
+              alphabetically.
+
+       --cc     Sort the output by last status change instead of alphabetically.
+              Modifies the --DD option (if used) to print the last status change
+              instead of modification time.
+
+       --UU     Do not sort.  Lists files in directory order. Disables
+              ----ddiirrssffiirrsstt.
+
+       --rr     Sort the output in reverse order.  This is a meta-sort that
+              alters the above sorts.  This option is disabled when --UU is
+              used.
+
+       ----ddiirrssffiirrsstt
+              List directories before files. This is a meta-sort that alters
+              the above sorts.  This option is disabled when --UU is used.
+
+       ----ffiilleessffiirrsstt
+              List files before directories. This is a meta-sort that alters
+              the above sorts.  This option is disabled when --UU is used.
+
+       ----ssoorrtt[==]_t_y_p_e
+              Sort the output by _t_y_p_e instead of name. Possible values are:
+              ccttiimmee (--cc), mmttiimmee (--tt)),, ssiizzee, vveerrssiioonn (--vv) or nnoonnee (--UU).
+
+
+GGRRAAPPHHIICCSS OOPPTTIIOONNSS
+       --ii     Makes tree not print the indentation lines, useful when used in
+              conjunction with the --ff option.  Also removes as much whitespace
+              as possible when used with the --JJ or --XX options.
+
+       --AA     Turn on ANSI line graphics hack when printing the indentation
+              lines.
+
+       --SS     Turn on CP437 line graphics (useful when using Linux console
+              mode fonts). This option is now equivalent to `----cchhaarrsseett==IIBBMM443377'
+              and may eventually be depreciated.
+
+       --nn     Turn colorization off always, over-ridden by the --CC option,
+              however overrides CLICOLOR_FORCE if present.
+
+       --CC     Turn colorization on always, using built-in color defaults if
+              the LS_COLORS or TREE_COLORS environment variables are not set.
+              Useful to colorize output to a pipe.
+
+XXMMLL//JJSSOONN//HHTTMMLL//HHYYPPEERRLLIINNKKSS OOPPTTIIOONNSS
+       --XX     Turn on XML output. Outputs the directory tree as an XML
+              formatted file.
+
+       --JJ     Turn on JSON output. Outputs the directory tree as a JSON
+              formatted array.
+
+       --HH [[--]]_b_a_s_e_H_R_E_F
+              Turn on HTML output, including HTTP references. Useful for ftp
+              sites.  _b_a_s_e_H_R_E_F gives the base ftp location when using HTML
+              output. That is, the local directory may be `/local/ftp/pub',
+              but it must be referenced as
+              `ftp://hostname.organization.domain/pub' (_b_a_s_e_H_R_E_F should be
+              `ftp://hostname.organization.domain'). If _b_a_s_e_H_R_E_F begins with a
+              dash (--), then the dash is removed and indicates that tree
+              should remove the first directory name from the href URL. Hint:
+              don't use ANSI lines with this option, and don't give more than
+              one directory in the directory list. If you wish to use colors
+              via CSS style-sheet, use the -C option in addition to this
+              option to force color output.
+
+       ----hhiinnttrroo[==]_f_i_l_e
+              Use _f_i_l_e as the HTML intro in place of the default one.  Use an
+              empty file or _/_d_e_v_/_n_u_l_l to eliminate the intro altogether.
+
+       ----hhoouuttrroo[==]_f_i_l_e
+              Use _f_i_l_e as the HTML outro in place of the default one.  Use an
+              empty file or _/_d_e_v_/_n_u_l_l to eliminate the outro altogether.
+
+       --TT _t_i_t_l_e
+              Sets the title and H1 header string in HTML output mode.
+
+       ----nnoolliinnkkss
+              Turns off hyperlinks in HTML output.
+
+       ----hhyyppeerrlliinnkk
+              Enable OSC 8 terminal hyperlinks for terminals that support
+              them. See BBUUGGSS AANNDD NNOOTTEESS below.
+
+       ----sscchheemmee[==]_s_c_h_e_m_a
+              Sets the schema used in the OSC 8 hyperlinks. The default schema
+              is 'ffiillee::////'.  If the schema omits the colon (:), then :://// will
+              be appended to the schema.
+
+       ----aauutthhoorriittyy[==]_h_o_s_t_n_a_m_e_|_a_u_t_h_o_r_i_t_y
+              Sets the authority (hostname) to use for the OSC 8 hyperlinks.
+              By default the local hostname of the machine as returned by
+              gethostname() is used as the authority.  A dot (..) or a set of
+              ""'s, sans '=', (i.e. the empty string) can be used to indicate
+              a null authority.
+
+IINNPPUUTT OOPPTTIIOONNSS
+       ----ffrroommffiillee
+              Reads a directory listing from a file rather than the file-
+              system.  Paths provided on the command line are files to read
+              from rather than directories to search.  The dot (.) directory
+              indicates that tree should read paths from standard input. NOTE:
+              this is only suitable for reading the output of a program such
+              as find, not 'tree -fi' as symlinks are not distinguished from
+              files that simply contain ' -> ' as part of the filename unless
+              the ----fffflliinnkkss option is used.
+
+       ----ffrroommttaabbffiillee
+              Like ----ffrroommffiillee, tree reads a directory tree from a text file
+              where the files are tab indented in a tree like format to
+              indicate the directory nesting level.
+
+       ----fffflliinnkkss
+              Processes symbolic link information found in a file, as from the
+              output of ''ttrreeee --ffii ----nnoorreeppoorrtt''.  Only the first occurrence of
+              the string '' -->> '' is used to denote the separation of the
+              filename from the link.
+
+MMIISSCC OOPPTTIIOONNSS
+       ----oopptt--ttooggggllee
+              Enables option "toggling".  Turns on the ability to toggle
+              options such as -a, -h, etc.  Useful to add to an alias when you
+              wish to disable options enabled in the alias.
+
+       ----hheellpp Outputs a verbose usage listing.
+
+       ----vveerrssiioonn
+              Outputs the version of tree.
+
+       ----     Option processing terminator.  No further options will be
+              processed after this.
+
+..IINNFFOO FFIILLEESS
+       ..iinnffoo files are similar to .gitignore files, if a .info file is found
+       while scanning a directory it is read and added to a stack of .info
+       information. Each file is composed of comments (lines starting with
+       hash marks (#),) or wild-card patterns which may match a file relative
+       to the directory the .info file is found in.  If a file should match a
+       pattern, the tab indented comment that follows the pattern is used as
+       the file comment.  A comment is terminated by a non-tab indented line.
+       Multiple patterns, each to a line, may share the same comment.
+
+
+FFIILLEESS
+       //eettcc//DDIIRR__CCOOLLOORRSS          System color database.
+       ~~//..ddiirrccoolloorrss             Users color database.
+       ..ggiittiiggnnoorree               Git exclusion file
+       $$GGIITT__DDIIRR//iinnffoo//eexxcclluuddee    Global git file exclusion list
+       ..iinnffoo                    File comment file
+       //uussrr//sshhaarree//ffiinnffoo//gglloobbaall__iinnffoo  Global file comment file
+
+
+
+EENNVVIIRROONNMMEENNTT
+       LLSS__CCOOLLOORRSS      Color information created by dircolors
+       TTRREEEE__CCOOLLOORRSS    Uses this for color information over LS_COLORS if it is
+       set.
+       TTRREEEE__CCHHAARRSSEETT   Character set for tree to use in HTML mode.
+       CCLLIICCOOLLOORR       Enables colorization even if TREE_COLORS or LS_COLORS is
+       not set.
+       CCLLIICCOOLLOORR__FFOORRCCEE Always enables colorization (effectively -C)
+       NNOO__CCOOLLOORR       Disable colorization (effectively -n) (see hhttttppss::////nnoo--
+       ccoolloorr..oorrgg//)
+       LLCC__CCTTYYPPEE       Locale for filename output.
+       LLCC__TTIIMMEE        Locale for timefmt output, see ssttrrffttiimmee(3).
+       TTZZ             Timezone for timefmt output, see ssttrrffttiimmee(3).
+       SSTTDDDDAATTAA__FFDD     Enable the stddata feature, optionally set descriptor to
+       use.
+
+
+AAUUTTHHOORR
+       Steve Baker (Steve.Baker.llc@gmail.com)
+       HTML output hacked by Francesc Rocher (rocher@econ.udg.es)
+       Charsets and OS/2 support by Kyosuke Tokoro (NBG01720@nifty.ne.jp)
+
+
+BBUUGGSS AANNDD NNOOTTEESS
+       Tree does not prune "empty" directories when the -P and -I options are
+       used by default. Use the --prune option.
+
+       The -h and --si options round to the nearest whole number unlike the ls
+       implementations which rounds up always.
+
+       Pruning files and directories with the -I, -P and --filelimit options
+       will lead to incorrect file/directory count reports.
+
+       The --prune and --du options cause tree to accumulate the entire tree
+       in memory before emitting it. For large directory trees this can cause
+       a significant delay in output and the use of large amounts of memory.
+
+       The timefmt expansion buffer is limited to a ridiculously large 255
+       characters.  Output of time strings longer than this will be undefined,
+       but are guaranteed to not exceed 255 characters.
+
+       XML/JSON trees are not colored, which is a bit of a shame.  The jq
+       utility can colorize the JSON however, just not the filenames by file-
+       type ala LS_COLORS.
+
+       OSC 8 hyperlinks may be poorly supported by your terminal.  For my
+       version of Konsole it is necessary to set the schema to file: (no //)
+       and use a null authority.  It may also be necessary to spend 3.5 hours
+       finding the option to turn on hyperlinks.
+
+       Probably more.
+
+       As of version 2.0.0, in Linux, tree will attempt to automatically
+       output a compact JSON tree on file descriptor 3 (what I call stddata,)
+       if present and the environment variable STDDATA_FD is defined or set to
+       a positive non-zero file descriptor value to use to output on.  It is
+       hoped that some day a better Linux/Unix shell may take advantage of
+       this feature, though BSON would probably be a better format for this.
+
+
+SSEEEE AALLSSOO
+       ddiirrccoolloorrss(1), llss(1), ffiinndd(1), dduu(1), jjqq(1), ssttrrffttiimmee(3), ggiittiiggnnoorree(5)
+
+Tree 2.2.1                                                             TREE(1)
