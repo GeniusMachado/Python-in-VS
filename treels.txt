@@ -1,0 +1,40 @@
+.
+├── 01_variables.py
+├── 02_datatypes.py
+├── Chapter 1 PS
+│   ├── Problem1.py
+│   ├── Problem2.py
+│   ├── Problem3.py
+│   ├── Problem4.py
+│   └── Problem5.py
+├── Chapter 2 PS
+│   └── backlog.log
+├── DC=Trip.txt
+├── Figure_1.png
+├── Goodmorning.md
+├── airindia.txt
+├── allahhhh.txt
+├── allahka.txt
+├── allahke.txt
+├── apple.txt
+├── daily.sh
+├── file1.txt
+├── forfun.txt
+├── ignore.txt
+├── index.txt
+├── jshgi.py
+├── ls.txt
+├── manual_for_tree_command.txt
+├── notes.txt
+├── pmset_command.txt
+├── random.txt
+├── sensor_server.py
+├── today1.txt
+├── tree_in_dekstop.txt
+├── treels.txt
+├── utils.txt
+├── vimtree.txt
+├── youtube_stats.json
+└── yt_log.txt
+
+3 directories, 35 files
