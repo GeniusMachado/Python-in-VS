@@ -1,0 +1,56 @@
+.
+├── 01_variables.py
+├── 02_datatypes.py
+├── Chapter 1 PS
+│   ├── Problem1.py
+│   ├── Problem2.py
+│   ├── Problem3.py
+│   ├── Problem4.py
+│   └── Problem5.py
+├── Chapter 2 PS
+│   └── backlog.log
+├── DC=Trip.txt
+├── Figure_1.png
+├── Goodmorning.md
+├── KrithikaBday.txt
+├── LatencyNumbers.txt
+├── airindia.txt
+├── ajshads.txt
+├── allahhhh.txt
+├── allahka
+├── allahka.txt
+├── allahke.txt
+├── apple.txt
+├── daily.sh
+├── file1.txt
+├── forfun.txt
+├── git.txt
+├── hsghka
+├── ignore.txt
+├── index.txt
+├── jshag.txt
+├── jshght.txt
+├── jshgi.py
+├── ksjhg
+├── ls
+├── ls.txt
+├── manman.txt
+├── manual_for_tree_command.txt
+├── notes.txt
+├── nvimman.txt
+├── pmset_command.txt
+├── random.txt
+├── sdhf.txt
+├── sensor_server.py
+├── shgs.txt
+├── sudo.txt
+├── today1.txt
+├── tree_in_dekstop.txt
+├── treeinrepo.txt
+├── treels.txt
+├── utils.txt
+├── vimtree.txt
+├── youtube_stats.json
+└── yt_log.txt
+
+3 directories, 51 files
