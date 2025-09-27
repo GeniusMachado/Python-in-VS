@@ -10,24 +10,11 @@ session = input.session("0930-1030", "Defining Range", tooltip = "New York local
 session_ext = input.session("1030-1600", "Session", tooltip = "New York local time", group = g1)
 dr_criteria = input.string(defval = 'Wick', title = "Success Criteria", options = ['Wick', 'Close'], tooltip = "Close will check if price invalidated the DR session by closing through the opposing side of the range. Wick will use any break of the opposing side, not just a close", group = g1)
 
-var g1b = "Additional Ranges"
-show_asian_range = input.bool(true, "Show Asian Range", group = g1b)
-show_london_range = input.bool(true, "Show London Range", group = g1b)
-asian_session = input.session("2100-2200", "Asian Session", tooltip = "Asian session time", group = g1b)
-london_session = input.session("0300-0400", "London Session", tooltip = "London session time", group = g1b)
-
 var g2 = "Style"
 dr_style = input.string(defval = 'Solid', title = "DR Style", options = ['Solid', 'Dotted', 'Dashed'], inline = "DR", group = g2)
 dr_color = input.color(color.gray, "", inline = "DR", group = g2)
 idr_style = input.string(defval = 'Dashed', title = "IDR Style", options = ['Solid', 'Dotted', 'Dashed'], inline = "IDR", group = g2)
 idr_color = input.color(color.green, "", inline = "IDR", group = g2)
-
-// Additional line styles
-midpoint_color = input.color(color.blue, "DR Midpoint Color", group = g2)
-open_close_color = input.color(color.orange, "DR Open/Close Color", group = g2)
-asian_color = input.color(color.purple, "Asian Range Color", group = g2)
-london_color = input.color(color.red, "London Range Color", group = g2)
-
 table_position = input.string('Top Right', "Table Position", options = ['Bottom Center', 'Bottom Left', 'Bottom Right', 'Middle Center', 'Middle Left', 'Middle Right', 'Top Center', 'Top Left', 'Top Right'], group = g2)
 
 var g3 = "Standard Deviation Lines"
@@ -51,17 +38,6 @@ var line std_dev_lower = na
 var line std_dev_upper_outer = na
 var line std_dev_lower_outer = na
 
-// Additional DR lines
-var line dr_midpoint = na
-var line dr_open_line = na
-var line dr_close_line = na
-
-// Asian and London range lines
-var line asian_high = na
-var line asian_low = na
-var line london_high = na
-var line london_low = na
-
 var float lod = na
 var float hod = na
 var float clod = na
@@ -72,10 +48,6 @@ var int track_total = 0
 
 dr_time = not na(time(dr_timeframe, session, "America/New_York"))
 dr_extension = not na(time(dr_timeframe, session_ext, "America/New_York"))
-
-// Additional session detection
-asian_time = not na(time(dr_timeframe, asian_session, "America/New_York"))
-london_time = not na(time(dr_timeframe, london_session, "America/New_York"))
 
 dr_style := switch dr_style
     'Solid' => line.style_solid
@@ -119,13 +91,6 @@ if dr_time and not dr_time[1]
     idrl := line.new(bar_index, dr_tf_close, bar_index + 1, dr_tf_close, color = idr_color, style = idr_style)
     dr_box := box.new(bar_index, math.max(dr_tf_close, dr_tf_open), bar_index + 1, math.min(dr_tf_close, dr_tf_open), border_color = na, bgcolor = color.new(color.gray, 70))
     
-    // Create DR midpoint line
-    dr_midpoint := line.new(bar_index, (dr_tf_high + dr_tf_low) / 2, bar_index + 1, (dr_tf_high + dr_tf_low) / 2, color = midpoint_color, style = line.style_dashed, width = 1)
-    
-    // Create DR open and close lines
-    dr_open_line := line.new(bar_index, dr_tf_open, bar_index + 1, dr_tf_open, color = open_close_color, style = line.style_dotted, width = 1)
-    dr_close_line := line.new(bar_index, dr_tf_close, bar_index + 1, dr_tf_close, color = open_close_color, style = line.style_dotted, width = 1)
-    
     // Create standard deviation lines if enabled
     if show_std_dev
         // Calculate standard deviation based on the DR range
@@ -139,16 +104,6 @@ if dr_time and not dr_time[1]
         // Outer standard deviation lines (outside DR box)
         std_dev_upper_outer := line.new(bar_index, dr_tf_high + std_dev_distance, bar_index + 1, dr_tf_high + std_dev_distance, color = std_dev_color, style = std_dev_style, width = 1)
         std_dev_lower_outer := line.new(bar_index, dr_tf_low - std_dev_distance, bar_index + 1, dr_tf_low - std_dev_distance, color = std_dev_color, style = std_dev_style, width = 1)
-    
-    // Create Asian range lines if enabled
-    if show_asian_range and asian_time and not asian_time[1]
-        asian_high := line.new(bar_index, dr_tf_high, bar_index + 1, dr_tf_high, color = asian_color, style = line.style_dashed, width = 2)
-        asian_low := line.new(bar_index, dr_tf_low, bar_index + 1, dr_tf_low, color = asian_color, style = line.style_dashed, width = 2)
-    
-    // Create London range lines if enabled
-    if show_london_range and london_time and not london_time[1]
-        london_high := line.new(bar_index, dr_tf_high, bar_index + 1, dr_tf_high, color = london_color, style = line.style_dashed, width = 2)
-        london_low := line.new(bar_index, dr_tf_low, bar_index + 1, dr_tf_low, color = london_color, style = line.style_dashed, width = 2)
 
 // Manage current DR
 if not na(drh)
@@ -158,30 +113,12 @@ if not na(drh)
         line.set_x2(idrh, bar_index)
         line.set_x2(idrl, bar_index)
         
-        // Update DR midpoint and open/close lines
-        if not na(dr_midpoint)
-            line.set_x2(dr_midpoint, bar_index)
-        if not na(dr_open_line)
-            line.set_x2(dr_open_line, bar_index)
-        if not na(dr_close_line)
-            line.set_x2(dr_close_line, bar_index)
-        
         // Update standard deviation lines if they exist
         if show_std_dev and not na(std_dev_upper)
             line.set_x2(std_dev_upper, bar_index)
             line.set_x2(std_dev_lower, bar_index)
             line.set_x2(std_dev_upper_outer, bar_index)
             line.set_x2(std_dev_lower_outer, bar_index)
-        
-        // Update Asian range lines if they exist
-        if show_asian_range and not na(asian_high)
-            line.set_x2(asian_high, bar_index)
-            line.set_x2(asian_low, bar_index)
-        
-        // Update London range lines if they exist
-        if show_london_range and not na(london_high)
-            line.set_x2(london_high, bar_index)
-            line.set_x2(london_low, bar_index)
         
         if dr_tf_low < lod
             lod := dr_tf_low
@@ -199,11 +136,6 @@ if not na(drh)
             line.set_y1(drh, dr_tf_high)
             line.set_y2(drh, dr_tf_high)
             
-            // Update DR midpoint when high changes
-            if not na(dr_midpoint)
-                line.set_y1(dr_midpoint, (line.get_y1(drh) + line.get_y1(drl)) / 2)
-                line.set_y2(dr_midpoint, (line.get_y1(drh) + line.get_y1(drl)) / 2)
-            
             // Update standard deviation lines when DR high changes
             if show_std_dev and not na(std_dev_upper)
                 current_dr_range = line.get_y1(drh) - line.get_y1(drl)
@@ -216,11 +148,6 @@ if not na(drh)
         if dr_tf_low < line.get_y1(drl)
             line.set_y1(drl, dr_tf_low)
             line.set_y2(drl, dr_tf_low)
-            
-            // Update DR midpoint when low changes
-            if not na(dr_midpoint)
-                line.set_y1(dr_midpoint, (line.get_y1(drh) + line.get_y1(drl)) / 2)
-                line.set_y2(dr_midpoint, (line.get_y1(drh) + line.get_y1(drl)) / 2)
             
             // Update standard deviation lines when DR low changes
             if show_std_dev and not na(std_dev_lower)
