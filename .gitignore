@@ -1,1 +1,6 @@
 *.log
+
+# Ignore Wireshark capture files
+*.pcapng
+*.pcapng.gz
+
