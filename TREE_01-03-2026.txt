@@ -1,0 +1,261 @@
+.
+├── antiX-docs.desktop
+├── bootcamp
+│   ├── async.py
+│   ├── database.db
+│   ├── day1_solution.py
+│   ├── decorators.py
+│   ├── generators.py
+│   ├── HappyNewYear.txt
+│   ├── homework1.py
+│   ├── homework1_try2.py
+│   ├── homework1_try3.py
+│   ├── loops.py
+│   ├── main.py
+│   ├── my_string_practice.py
+│   ├── notes
+│   │   └── Python_Course
+│   │       ├── Lecture1_py.pdf
+│   │       ├── Lecture2_py.pdf
+│   │       ├── Lecture3_py.pdf
+│   │       ├── Lecture4_py.pdf
+│   │       ├── Lecture5_py.pdf
+│   │       ├── Lecture6_py.pdf
+│   │       ├── Lecture7_py.pdf
+│   │       └── Lecture8_py.pdf
+│   ├── oop2.py
+│   ├── oop3.py
+│   ├── oop.py
+│   ├── palindrome.py
+│   ├── __pycache__
+│   │   ├── main.cpython-311.pyc
+│   │   └── schemas.cpython-311.pyc
+│   ├── revision.py
+│   ├── schemas.py
+│   ├── timepass.py
+│   └── typehint.py
+├── chatgptAPIkey.txt
+├── dockertunneltoken.txt
+├── file-manager.desktop
+├── geniusmachado
+│   ├── api-gateway
+│   │   ├── Dockerfile
+│   │   ├── frontend
+│   │   ├── gateway.py
+│   │   ├── __pycache__
+│   │   │   └── gateway.cpython-311.pyc
+│   │   ├── pyproject.toml
+│   │   └── uv.lock
+│   ├── db
+│   │   └── init.sql
+│   ├── docker-compose.yml
+│   ├── frontend
+│   │   ├── static
+│   │   │   ├── css
+│   │   │   ├── images
+│   │   │   │   └── profile.jpg
+│   │   │   └── resume.pdf
+│   │   └── templates
+│   │       ├── admin.html
+│   │       ├── base.html
+│   │       └── index.html
+│   ├── portfolio-engine
+│   │   ├── Dockerfile
+│   │   ├── engine.py
+│   │   ├── __pycache__
+│   │   │   └── engine.cpython-311.pyc
+│   │   ├── pyproject.toml
+│   │   └── uv.lock
+│   └── README.md
+├── githubtoken.txt
+├── project.sh
+├── Python-in-VS
+│   ├── 01_variables.py
+│   ├── 02_datatypes.py
+│   ├── airindia.txt
+│   ├── ajshads.txt
+│   ├── allahhhh.txt
+│   ├── allahka
+│   ├── allahka.txt
+│   ├── allahke.txt
+│   ├── allahlksdhlt.txt
+│   ├── allah.txt
+│   ├── apple.txt
+│   ├── asdhfgi.txt
+│   ├── asdhjtl.txt
+│   ├── asdkjths.txt
+│   ├── Chapter 1 PS
+│   │   ├── Problem1.py
+│   │   ├── Problem2.py
+│   │   ├── Problem3.py
+│   │   ├── Problem4.py
+│   │   └── Problem5.py
+│   ├── Chapter 2 PS
+│   │   └── backlog.log
+│   ├── com.py
+│   ├── daily.sh
+│   ├── DC=Trip.txt
+│   ├── dhgkaj.txt
+│   ├── dkfhglfd.txt
+│   ├── DR_Genius_Case_Study.pine
+│   ├── DR_IDR_Indicator_Fixed.pine
+│   ├── dr_idr_indicator.py
+│   ├── dsghah.txt
+│   ├── Figure_1.png
+│   ├── file1.txt
+│   ├── forfun.txt
+│   ├── genjihgfug
+│   ├── ghgh.txt
+│   ├── git.txt
+│   ├── Goodmorning.md
+│   ├── hsghka
+│   ├── hsghs.txt
+│   ├── ignore.txt
+│   ├── index.txt
+│   ├── ingoaruh.txt
+│   ├── jkdgh.txt
+│   ├── jklshkh.txt
+│   ├── jshag.txt
+│   ├── jshght.txt
+│   ├── jshgi.py
+│   ├── jshts.txt
+│   ├── kelore.txt
+│   ├── kjsdhfsdhf.txt
+│   ├── kjsdhts.txt
+│   ├── klihst.txt
+│   ├── krhgerheoigh.txt
+│   ├── KrithikaBday.txt
+│   ├── ksjhg
+│   ├── LatencyNumbers.txt
+│   ├── lkarht.txt
+│   ├── ls
+│   ├── lshtals.txt
+│   ├── lsht.txt
+│   ├── lsjht.txt
+│   ├── ls.txt
+│   ├── manman.txt
+│   ├── manual_for_tree_command.txt
+│   ├── newupdatetovim.py
+│   ├── notes.txt
+│   ├── nvimman.txt
+│   ├── pmset_command.txt
+│   ├── random.txt
+│   ├── requirements.txt
+│   ├── sahfg.txt
+│   ├── saujhtlsjht.txt
+│   ├── Screenshots
+│   │   └── screenshot.jpg
+│   ├── sdhf.txt
+│   ├── sdhrtsht.txt
+│   ├── sdhtlsdt.txt
+│   ├── sdjhfsh.txt
+│   ├── sdlthsdlth.txt
+│   ├── sdlthsl.txt
+│   ├── sensor_server.py
+│   ├── sfjk.txt
+│   ├── shdglas.txt
+│   ├── shgs.txt
+│   ├── shre.txt
+│   ├── shtht.txt
+│   ├── sithl.txt
+│   ├── sjdhgs.cts
+│   ├── sjkdhgsh.txt
+│   ├── sjkdthslh.txt
+│   ├── skadhtasdt.txt
+│   ├── skjhkgh.txt
+│   ├── skjhks.txt
+│   ├── skjhrts.txt
+│   ├── sldtha.txty
+│   ├── slhtlsdth.txt
+│   ├── slhtlsjht.txt
+│   ├── slhtls.txt
+│   ├── slhtlth.txt
+│   ├── slhtlt.txt
+│   ├── slhtsaihlt.txt
+│   ├── slhtslht.txt
+│   ├── slht.txt
+│   ├── slkth.txt
+│   ├── sudo.txt
+│   ├── suhgksh.txt
+│   ├── today1.txt
+│   ├── TREE_01-03-2026.txt
+│   ├── tree_in_dekstop.txt
+│   ├── treeinrepo.txt
+│   ├── treels.txt
+│   ├── uoishgkrt.txt
+│   ├── utils.txt
+│   ├── vimtree.txt
+│   ├── Wireshark carptures.pcapng
+│   ├── youtube_stats.json
+│   └── yt_log.txt
+├── Resume
+│   ├── coverletter.pdf
+│   ├── Genius_Machado CV.pdf
+│   └── Self Project Experience.pdf
+├── selfhosting-geniusmachado.com
+│   ├── api-gateway
+│   │   ├── Dockerfile
+│   │   ├── frontend
+│   │   ├── gateway.py
+│   │   ├── __pycache__
+│   │   │   └── gateway.cpython-311.pyc
+│   │   ├── pyproject.toml
+│   │   └── uv.lock
+│   ├── db
+│   │   └── init.sql
+│   ├── docker-compose.yml
+│   ├── frontend
+│   │   ├── static
+│   │   │   ├── css
+│   │   │   ├── images
+│   │   │   │   └── profile.jpg
+│   │   │   └── resume.pdf
+│   │   └── templates
+│   │       ├── admin.html
+│   │       ├── base.html
+│   │       └── index.html
+│   ├── portfolio-engine
+│   │   ├── Dockerfile
+│   │   ├── engine.py
+│   │   ├── __pycache__
+│   │   │   └── engine.cpython-311.pyc
+│   │   ├── pyproject.toml
+│   │   └── uv.lock
+│   ├── README.md
+│   └── setup_genius_portfolio.sh
+├── setup_genius_portfolio.sh
+├── TradingAlgo
+│   ├── api-gateway
+│   │   ├── Dockerfile
+│   │   ├── gateway.py
+│   │   └── pyproject.toml
+│   ├── auth-service
+│   │   ├── auth.py
+│   │   ├── Dockerfile
+│   │   └── pyproject.toml
+│   ├── db
+│   │   └── init.sql
+│   ├── docker-compose.yml
+│   ├── frontend
+│   │   ├── static
+│   │   │   ├── css
+│   │   │   └── images
+│   │   │       └── banner.jpg
+│   │   └── templates
+│   │       ├── base.html
+│   │       ├── dashboard.html
+│   │       ├── index.html
+│   │       ├── legal
+│   │       ├── login.html
+│   │       └── register.html
+│   ├── project.sh
+│   ├── README.md
+│   └── strategy-engine
+│       ├── Dockerfile
+│       ├── engine.py
+│       ├── paper_exchange.py
+│       ├── pyproject.toml
+│       └── risk_manager.py
+└── trash.desktop
+
+45 directories, 214 files
